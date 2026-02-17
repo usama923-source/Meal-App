@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gridapp/screens/categories.dart';
 import 'package:gridapp/screens/tabs.dart';
 
 
