@@ -30,13 +30,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
   Widget iconStar = Icon(Icons.star);
 
 
-  void _showInfoMessage(String message) {
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), duration: Duration(seconds: 5)),
-    );
-  }
-
+ 
 
   var activePageTitle = 'Cateories';
 
