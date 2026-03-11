@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gridapp/model/meal.dart';
 import 'package:gridapp/screens/categories.dart';
 import 'package:gridapp/screens/filters.dart';
 import 'package:gridapp/screens/meals.dart';
 import 'package:gridapp/widgets/main_drawer.dart';
 import 'package:gridapp/providers/meals_provider.dart';
 import 'package:gridapp/providers/favorites_provider.dart';
+import 'package:gridapp/providers/filters_provider.dart';
 
 
 const kInitialFilters = {
