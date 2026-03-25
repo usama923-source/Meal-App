@@ -45,7 +45,7 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(
               Icons.restaurant,
               size: 16,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
             title: Text(
               'Meals',
@@ -63,7 +63,7 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(
               Icons.settings,
               size: 16,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
             title: Text(
               'Filter',

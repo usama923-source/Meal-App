@@ -25,12 +25,8 @@ class TabsScreen extends ConsumerStatefulWidget {
 
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
-  Map<Filter, bool> _selectedFilters = kInitialFilters;
 
   Widget iconStar = Icon(Icons.star);
-
-
- 
 
   var activePageTitle = 'Cateories';
 
@@ -45,46 +41,20 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
       // Navigator.of(context).pop();
 
       final result = await Navigator.of(context).push<Map<Filter, bool>>(
-        MaterialPageRoute(
-          builder: (ctx) => FiltersScreen(currentFilters: _selectedFilters),
-        ),
+        MaterialPageRoute(builder: (ctx) => const FiltersScreen()),
       );
-
-      setState(() {
-        _selectedFilters = result ?? kInitialFilters;
-      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final meals = ref.watch(mealsProvider);
-    final availableMeals = meals.where((meal) {
-      if (_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
-        return false;
-      }
-      if (_selectedFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
-        return false;
-      }
-      if (_selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
-        return false;
-      }
-      if (_selectedFilters[Filter.vegan]! && !meal.isVegan) {
-        return false;
-      }
-      return true;
-    }).toList();
 
-    Widget activePage = CategoriesScreen(
-      
-      availableMeals: availableMeals,
-    );
+    final availableMeals = ref.watch(filteredMealsProvider);
+
+    Widget activePage = CategoriesScreen(availableMeals: availableMeals);
     if (_selectedPageIndex == 1) {
       final favoriteMeals = ref.watch(favoriteMealsProvider);
-      activePage = MealsScreen(
-        meals: favoriteMeals,
-        
-      );
+      activePage = MealsScreen(meals: favoriteMeals);
       activePageTitle = 'Your Favorite';
     }
 
